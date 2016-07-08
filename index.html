@@ -10,7 +10,13 @@
   </head>
 
   <body ng-controller="StoreController as store">
+<!-- The 'ng-controller' DIRECTIVE attaches the controller to this HTML
+element.  The "as store" creates an alias for the StoreController for us to used
+inside of our expressions.  The SCOPE of the controller is only INSIDE this
+HTML body element. -->
       <div ng-repeat="product in store.products">
+<!-- "ng-repeat" allows us to iterate through each product in the store and gets
+repeated for as many products as we have in our store. -->
         <h1> {{product.name }} </h1>
         <h2> ${{product.price}} </h2>
         <p> {{product.description }} </p>

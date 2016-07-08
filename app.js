@@ -23,7 +23,7 @@
       price: 5.95,
       description: ". . .",
       canPurchase: true,
-      soldOut: false,
+      soldOut: true,
     }
   ];
 // The above stores the gem variable and its data INSIDE the app.
