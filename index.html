@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html ng-app="gemStore">
+<!-- This DIRECTIVE is how we attach the APPLICATION MODULE to the page -->
 
   <head>
     <meta charset="utf-8" />
@@ -14,13 +15,21 @@
 element.  The "as store" creates an alias for the StoreController for us to used
 inside of our expressions.  The SCOPE of the controller is only INSIDE this
 HTML body element. -->
-      <div ng-repeat="product in store.products">
+    <ul class="list-group">
+      <li class="list-group-item" ng-repeat="product in store.products | orderBy:'-price'" >
 <!-- "ng-repeat" allows us to iterate through each product in the store and gets
 repeated for as many products as we have in our store. -->
-        <h1> {{product.name }} </h1>
-        <h2> ${{product.price}} </h2>
+        <h3>
+          {{product.name }}
+          <em class="pull-right">{{product.price | currency }}</em>
+<!-- The "currency" keyword is a FILTER that is PIPED the product.price -->
+        </h3>
         <p> {{product.description }} </p>
         <button ng-show="product.canPurchase">Add to Cart</button>
+      </li>
+    </ul>
+<!-- "ng-show" displays a section based on an EXPRESSION.  In the above case,
+the button only shows if the product's canPurchase status is set to TRUE -->
       </div>
     </body>
 </html>

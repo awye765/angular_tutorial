@@ -21,7 +21,7 @@
     {
       name: 'Pentagonal Gem',
       price: 5.95,
-      description: ". . .",
+      description: "The most equisite gem you will ever see.",
       canPurchase: true,
       soldOut: true,
     }

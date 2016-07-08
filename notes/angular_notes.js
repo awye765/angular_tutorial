@@ -28,9 +28,14 @@ function StoreController() {
 //
 // Modules are where we write pieces of Angular app and how we keep code
 // encapsulated.  Makes code more readable and testable.  It's also where we
-// contain our dependencies.
+// contain our dependencies.  It's where the application's components live.
 //
 // WHAT ARE CONTROLLERS?
 //
 // Controllers help get data onto our webpage.  Controlers are where we define
 // our app's BEHAVIOUR by defining functions and values.
+//
+// WHAT ARE EXPRESSIONS?
+//
+// How values get displayed within the page.
+//
