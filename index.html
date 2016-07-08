@@ -11,18 +11,22 @@
     <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
 
     <script type="text/javascript" src="angular.min.js"></script>
-    
+
     <script type="text/javascript" src="app.js"></script>
 
   </head>
 
-  <body ng-controller="StoreController as store">
+  <body class="list-group" ng-controller="StoreController as store">
 <!-- The 'ng-controller' DIRECTIVE attaches the controller to this HTML
 element.  The "as store" creates an alias for the StoreController for us to used
 inside of our expressions.  The SCOPE of the controller is only INSIDE this
 HTML body element. -->
-    <ul class="list-group" >
-      <li class="list-group-item" ng-repeat="product in store.products | orderBy:'-price'" >
+    <header>
+      <h1 class="text-center">Flatlander Crafted Gems</h1>
+      <h2 class="text-center"> - a storefront built in Angular - </h2>
+    </header>
+
+    <div class="list-group-item" ng-repeat="product in store.products | orderBy:'-price'" >
 <!-- "ng-repeat" allows us to iterate through each product in the store and gets
 repeated for as many products as we have in our store. -->
         <h3>
@@ -31,27 +35,48 @@ repeated for as many products as we have in our store. -->
 <!-- The "currency" keyword is a FILTER that is PIPED the product.price -->
         </h3>
 <!-- Image gallery -->
-        <div class="gallery">
+        <section ng-show="product.images.length">
 
-          <div class="img-wrap">
-            <img ng-src="{{product.images[0]}}" class="img-thumbnail center-block" />
-          </div>
+          <img ng-src="{{product.images[0]}}" class="img img-circle img-thumbnails center-block" />
 
-          <ul class="img-thumbnail clearfix">
+          <ul class="img-thumbnails clearfix">
+
             <li class="small-image pull-left thumbnail" ng-repeat="image in product.images" >
               <img ng-src="{{image}}" />
             </li>
+
           </ul>
 
-        </div>
+        </section>
 
-        <p> {{product.description }} </p>
+        <section class="tab" ng-controller="TabController as tab">
 
-        <button ng-show="product.canPurchase">Add to Cart</button>
+          <ul class="nav nav-pills">
+            <li ng-class="{ active:tab.isSet(1) }">
+              <a href ng-click="tab.setTab(1)">Description</a></li>
+            <li ng-class="{active:tab.isSet(2)}">
+              <a href ng-click="tab.setTab(2)">Specs</a></li>
+            <li ng-class="{active:tab.isSet(3)}">
+              <a href ng-click="tab.setTab(3)">Reviews</a></li>
+          </ul>
+          
+          <div ng-show="tab.isSet(1)">
+            <h4>Description</h4>
+            <blockquote>{{product.description}}</blockquote>
+          </div>
 
-      </li>
+          <div ng-show="tab.isSet(2)">
+            <h4>Specs</h4>
+            <blockquote>Shine: {{product.shine}} </blockquote>
+          </div>
 
-    </ul>
+          <div ng-show="tab.isSet(3)">
+            <h4>Reviews</h4>
+            <blockquote></blockquote>
+          </div>
+
+        </section>
+
 <!-- "ng-show" displays a section based on an EXPRESSION.  In the above case,
 the button only shows if the product's canPurchase status is set to TRUE -->
       </div>
