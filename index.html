@@ -54,21 +54,17 @@ repeated for as many products as we have in our store. -->
           <ul class="nav nav-pills">
             <li ng-class="{ active:tab.isSet(1) }">
               <a href ng-click="tab.setTab(1)">Description</a></li>
-            <li ng-class="{active:tab.isSet(2)}">
+            <li ng-class="{ active:tab.isSet(2) }">
               <a href ng-click="tab.setTab(2)">Specs</a></li>
-            <li ng-class="{active:tab.isSet(3)}">
+            <li ng-class="{ active:tab.isSet(3) }">
               <a href ng-click="tab.setTab(3)">Reviews</a></li>
           </ul>
 
-          <div ng-show="tab.isSet(1)">
-            <h4>Description</h4>
-            <blockquote>{{product.description}}</blockquote>
-          </div>
+          <!-- Product Description -->
+          <product-description ng-show="tab.isSet(1)"></product-description>
 
-          <div ng-show="tab.isSet(2)">
-            <h4>Specs</h4>
-            <blockquote>Shine: {{product.shine}} </blockquote>
-          </div>
+          <!-- Product Specs -->
+          <div product-specs ng-show="tab.isSet(2)"></div>
 
           <!--  Review Tab's Content  -->
           <div ng-show="tab.isSet(3)">
