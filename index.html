@@ -26,34 +26,24 @@ HTML body element. -->
       <h2 class="text-center"> - a storefront built in Angular - </h2>
     </header>
 
-    <div class="list-group-item" ng-repeat="product in store.products | orderBy:'-price'" >
-<!-- "ng-repeat" allows us to iterate through each product in the store and gets
-repeated for as many products as we have in our store. -->
-        <h3>
-          {{ product.name }}
-          <em class="pull-right">{{product.price | currency }}</em>
+    <!-- Products Container -->
+    <div class="list-group">
+      <!-- Product Container -->
+      <div class="list-group-item" ng-repeat="product in store.products | orderBy:'-price'" >
+      <!-- "ng-repeat" allows us to iterate through each product in the store and gets
+      repeated for as many products as we have in our store. -->
+        <h3>{{ product.name }}<em class="pull-right">{{product.price | currency }}</em></h3>
 <!-- The "currency" keyword is a FILTER that is PIPED the product.price -->
-        </h3>
-<!-- Image gallery -->
-        <section ng-show="product.images.length">
 
-          <img ng-src="{{product.images[0]}}" class="img img-circle img-thumbnails center-block" />
-
-          <ul class="img-thumbnails clearfix">
-
-            <li class="small-image pull-left thumbnail" ng-repeat="image in product.images" >
-              <img ng-src="{{image}}" />
-            </li>
-
-          </ul>
-
-        </section>
+        <!-- Image gallery -->
+        <product-gallery></product-gallery>
         <!-- Product Tabs  -->
         <product-tabs></product-tabs>
 
 <!-- "ng-show" displays a section based on an EXPRESSION.  In the above case,
 the button only shows if the product's canPurchase status is set to TRUE -->
       </div>
+    </div>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     </body>
 </html>
