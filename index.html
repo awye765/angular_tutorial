@@ -48,28 +48,8 @@ repeated for as many products as we have in our store. -->
           </ul>
 
         </section>
-
-        <section class="tab" ng-controller="TabController as tab">
-
-          <ul class="nav nav-pills">
-            <li ng-class="{ active:tab.isSet(1) }">
-              <a href ng-click="tab.setTab(1)">Description</a></li>
-            <li ng-class="{ active:tab.isSet(2) }">
-              <a href ng-click="tab.setTab(2)">Specs</a></li>
-            <li ng-class="{ active:tab.isSet(3) }">
-              <a href ng-click="tab.setTab(3)">Reviews</a></li>
-          </ul>
-
-          <!-- TAB 1: Product Description -->
-          <product-description ng-show="tab.isSet(1)"></product-description>
-
-          <!-- TAB 2: Product Specs -->
-          <div product-specs ng-show="tab.isSet(2)"></div>
-
-          <!-- TAB 3: Reviews  -->
-          <product-reviews ng-show="tab.isSet(3)"></product-reviews>
-
-        </section>
+        <!-- Product Tabs  -->
+        <product-tabs></product-tabs>
 
 <!-- "ng-show" displays a section based on an EXPRESSION.  In the above case,
 the button only shows if the product's canPurchase status is set to TRUE -->
