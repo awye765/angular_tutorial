@@ -37,4 +37,4 @@ There is also an excellent discussion forum for additional support should you ge
 
 6. This is what the app should look like when running locally:
 
-<p align="center">![alt text align="center"](https://github.com/awye75/angular_tutorial/images/)</p>
+<p align="center"><img src="images/screenshot.png"></p>
