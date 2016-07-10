@@ -91,3 +91,7 @@ img{
 .ng-valid.ng-dirty {
   border-color: #78FA89;
 }
+
+.img-circle {
+    border-radius: 50%;
+}
