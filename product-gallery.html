@@ -1,10 +1,10 @@
 <div ng-show="product.images.length">
-  <div class="img-wrap img-circle">
-    <img class="img-circle" ng-src="{{product.images[gallery.current]}}" />
+  <div class="img-wrap">
+    <img ng-src="{{product.images[gallery.current]}}" />
   </div>
-  <ul class="img-thumbnails img-circle clearfix">
+  <ul class="img-thumbnails clearfix">
     <li class="small-image img-circle pull-left thumbnail" ng-repeat="image in product.images">
-      <img class="img-circle" ng-src="{{image}}" ng-click="gallery.setCurrent($index)" />
+      <img ng-src="{{image}}" ng-click="gallery.setCurrent($index)" />
     </li>
   </ul>
 </div>
