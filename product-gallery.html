@@ -3,7 +3,7 @@
     <img class="img-circle" ng-src="{{product.images[gallery.current]}}" />
   </div>
   <ul class="img-thumbnails img-circle clearfix">
-    <li class="small-image pull-left thumbnail" ng-repeat="image in product.images">
+    <li class="img-circle small-image pull-left thumbnail" ng-repeat="image in product.images">
       <img class="img-circle" ng-src="{{image}}" ng-click="gallery.setCurrent($index)" />
     </li>
   </ul>
